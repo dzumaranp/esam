@@ -1,0 +1,347 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/styles.css
+index 0000000000000000000000000000000000000000..55199509c2e5af9f5d8543b2aa4d145000aa64bd 100644
+--- a//dev/null
++++ b/styles.css
+@@ -0,0 +1,338 @@
++:root {
++    --verde-oscuro: #0a4735;
++    --verde: #1f7556;
++    --verde-claro: #2fbf71;
++    --azul: #1a5f7a;
++    --gris: #5b6a73;
++    --gris-claro: #f2f5f7;
++    --blanco: #ffffff;
++    --sombra: 0 18px 35px rgba(13, 59, 49, 0.15);
++}
++
++* {
++    box-sizing: border-box;
++    margin: 0;
++    padding: 0;
++}
++
++body {
++    font-family: 'Montserrat', sans-serif;
++    color: var(--gris);
++    background: var(--gris-claro);
++    line-height: 1.6;
++}
++
++.hero {
++    background: linear-gradient(135deg, rgba(10, 71, 53, 0.95), rgba(31, 117, 86, 0.85)), url('https://images.unsplash.com/photo-1523381099335-123716cbed61?auto=format&fit=crop&w=1400&q=80') center/cover;
++    color: var(--blanco);
++    padding: 2.5rem 8vw 6rem;
++    min-height: 70vh;
++    display: flex;
++    flex-direction: column;
++    justify-content: space-between;
++}
++
++.top-bar {
++    display: flex;
++    align-items: center;
++    justify-content: space-between;
++    gap: 1.5rem;
++}
++
++.logo {
++    font-size: 1.2rem;
++    font-weight: 700;
++    letter-spacing: 0.2rem;
++}
++
++.tab-nav {
++    display: flex;
++    gap: 0.75rem;
++}
++
++.tab-link {
++    background: transparent;
++    border: 1px solid rgba(255, 255, 255, 0.6);
++    border-radius: 999px;
++    color: var(--blanco);
++    cursor: pointer;
++    font-size: 0.9rem;
++    font-weight: 500;
++    padding: 0.6rem 1.5rem;
++    transition: background 0.3s ease, transform 0.2s ease;
++}
++
++.tab-link:hover,
++.tab-link:focus {
++    background: rgba(255, 255, 255, 0.2);
++    transform: translateY(-2px);
++}
++
++.tab-link.active {
++    background: var(--blanco);
++    color: var(--verde-oscuro);
++}
++
++.hero-content {
++    max-width: 560px;
++}
++
++.hero h1 {
++    font-size: clamp(2.25rem, 4vw, 3.2rem);
++    margin-bottom: 1rem;
++}
++
++.hero p {
++    font-size: 1.05rem;
++    margin-bottom: 2rem;
++    color: rgba(255, 255, 255, 0.9);
++}
++
++.cta-buttons {
++    display: flex;
++    flex-wrap: wrap;
++    gap: 1rem;
++}
++
++.btn {
++    display: inline-flex;
++    align-items: center;
++    justify-content: center;
++    padding: 0.8rem 1.6rem;
++    border-radius: 999px;
++    font-weight: 600;
++    text-decoration: none;
++    transition: transform 0.2s ease, box-shadow 0.2s ease;
++    border: none;
++}
++
++.btn.primary {
++    background: var(--verde-claro);
++    color: var(--blanco);
++    box-shadow: var(--sombra);
++}
++
++.btn.secondary {
++    background: rgba(255, 255, 255, 0.2);
++    color: var(--blanco);
++    border: 1px solid rgba(255, 255, 255, 0.4);
++}
++
++.btn:hover,
++.btn:focus {
++    transform: translateY(-3px);
++}
++
++main {
++    margin-top: -3rem;
++}
++
++.section {
++    background: var(--blanco);
++    margin: 0 auto 2.5rem;
++    border-radius: 20px;
++    padding: 3rem clamp(1.5rem, 5vw, 4rem);
++    max-width: 1100px;
++    box-shadow: var(--sombra);
++}
++
++.section h2 {
++    color: var(--verde-oscuro);
++    margin-bottom: 1.5rem;
++}
++
++.servicios .grid {
++    display: grid;
++    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
++    gap: 1.5rem;
++}
++
++.card {
++    background: var(--gris-claro);
++    border-radius: 16px;
++    padding: 1.5rem;
++    transition: transform 0.3s ease, box-shadow 0.3s ease;
++}
++
++.card h3 {
++    color: var(--azul);
++    margin-bottom: 0.75rem;
++    font-size: 1.1rem;
++}
++
++.card p {
++    font-size: 0.95rem;
++}
++
++.card:hover {
++    transform: translateY(-6px);
++    box-shadow: 0 15px 25px rgba(26, 95, 122, 0.15);
++}
++
++.metodologia {
++    display: grid;
++    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++    gap: 2rem;
++    align-items: center;
++}
++
++.metodologia .texto ul {
++    margin-top: 1rem;
++    padding-left: 1.2rem;
++}
++
++.metodologia .texto li {
++    margin-bottom: 0.6rem;
++    color: var(--gris);
++}
++
++.metodologia .imagen {
++    min-height: 260px;
++    border-radius: 18px;
++    background: url('https://images.unsplash.com/photo-1527628173875-3c7bfd28ad81?auto=format&fit=crop&w=900&q=80') center/cover;
++}
++
++.contacto p {
++    margin-bottom: 2rem;
++}
++
++.contact-form {
++    display: grid;
++    gap: 1.2rem;
++}
++
++.form-row {
++    display: flex;
++    flex-direction: column;
++    gap: 0.4rem;
++}
++
++input,
++textarea {
++    border-radius: 10px;
++    border: 1px solid #d7dee2;
++    padding: 0.8rem 1rem;
++    font-size: 1rem;
++    font-family: inherit;
++    transition: border 0.2s ease, box-shadow 0.2s ease;
++}
++
++input:focus,
++textarea:focus {
++    outline: none;
++    border-color: var(--verde);
++    box-shadow: 0 0 0 3px rgba(47, 191, 113, 0.2);
++}
++
++.verificacion p {
++    max-width: 560px;
++    margin-bottom: 1.5rem;
++}
++
++.verificacion-form {
++    display: grid;
++    gap: 0.75rem;
++    max-width: 400px;
++}
++
++.verificacion-form input {
++    text-transform: uppercase;
++    letter-spacing: 0.06rem;
++}
++
++.resultado {
++    margin-top: 1.5rem;
++    border-radius: 14px;
++    padding: 1.2rem;
++    font-weight: 500;
++    display: none;
++}
++
++.resultado.ok {
++    background: rgba(47, 191, 113, 0.1);
++    border: 1px solid rgba(47, 191, 113, 0.4);
++    color: var(--verde-oscuro);
++}
++
++.resultado.error {
++    background: rgba(220, 53, 69, 0.1);
++    border: 1px solid rgba(220, 53, 69, 0.4);
++    color: #a10014;
++}
++
++.info-adicional {
++    margin-top: 2rem;
++    background: var(--gris-claro);
++    padding: 1.5rem;
++    border-radius: 14px;
++}
++
++.info-adicional a {
++    color: var(--azul);
++    text-decoration: none;
++    font-weight: 600;
++}
++
++.info-adicional a:hover {
++    text-decoration: underline;
++}
++
++.tab-section {
++    display: none;
++}
++
++.tab-section.active {
++    display: block;
++}
++
++.footer {
++    text-align: center;
++    padding: 2rem 1rem 3rem;
++    color: var(--gris);
++    font-size: 0.95rem;
++}
++
++.footer-links {
++    display: flex;
++    justify-content: center;
++    gap: 1.5rem;
++    margin-top: 0.5rem;
++}
++
++.footer a {
++    color: inherit;
++    text-decoration: none;
++}
++
++.footer a:hover {
++    text-decoration: underline;
++}
++
++@media (max-width: 768px) {
++    .hero {
++        padding: 2rem 1.75rem 5rem;
++    }
++
++    .top-bar {
++        flex-direction: column;
++        align-items: flex-start;
++    }
++
++    .tab-nav {
++        width: 100%;
++    }
++
++    .tab-nav .tab-link {
++        flex: 1;
++        text-align: center;
++    }
++
++    .cta-buttons {
++        width: 100%;
++    }
++
++    .section {
++        padding: 2.5rem 1.5rem;
++        margin-inline: 1rem;
++    }
++}
+ 
+EOF
+)

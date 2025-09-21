@@ -1,0 +1,127 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/index.html
+index 0000000000000000000000000000000000000000..632ea4cfb16883ccf92092ab4e48ce8026305479 100644
+--- a//dev/null
++++ b/index.html
+@@ -0,0 +1,118 @@
++<!DOCTYPE html>
++<html lang="es">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>ESAM Ingenieros | Consultoría Ambiental</title>
++    <link rel="stylesheet" href="styles.css">
++    <link rel="preconnect" href="https://fonts.googleapis.com">
++    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
++</head>
++<body>
++    <header class="hero">
++        <div class="top-bar">
++            <div class="logo">ESAM INGENIEROS</div>
++            <nav class="tab-nav" aria-label="Secciones principales">
++                <button class="tab-link active" data-target="promocional">Servicios</button>
++                <button class="tab-link" data-target="verificacion">Verificación de certificados</button>
++            </nav>
++        </div>
++        <div class="hero-content">
++            <h1>Consultoría ambiental con enfoque integral</h1>
++            <p>Somos especialistas en gestión de residuos sólidos, análisis de aguas residuales, prevención de riesgos laborales y homologación de documentación en seguridad, salud ocupacional y medio ambiente.</p>
++            <div class="cta-buttons">
++                <a class="btn primary" href="#servicios">Conoce nuestros servicios</a>
++                <a class="btn secondary" href="#contacto">Solicita una consulta</a>
++            </div>
++        </div>
++    </header>
++
++    <main>
++        <section id="promocional" class="tab-section active" aria-labelledby="tab-servicios">
++            <section id="servicios" class="section servicios">
++                <h2>Nuestros servicios</h2>
++                <div class="grid">
++                    <article class="card">
++                        <h3>Gestión integral de residuos sólidos</h3>
++                        <p>Diseñamos e implementamos planes para el manejo eficiente de residuos sólidos, cumpliendo con la normativa vigente y promoviendo la sostenibilidad.</p>
++                    </article>
++                    <article class="card">
++                        <h3>Asesoría en valores máximos admisibles</h3>
++                        <p>Evaluamos la calidad de las aguas residuales y orientamos el cumplimiento de los valores máximos admisibles exigidos por la ley.</p>
++                    </article>
++                    <article class="card">
++                        <h3>Prevención de riesgos laborales</h3>
++                        <p>Desarrollamos programas de prevención para proteger a tu equipo, reducir accidentes y garantizar ambientes de trabajo seguros.</p>
++                    </article>
++                    <article class="card">
++                        <h3>Homologación de documentación SSO &amp; MA</h3>
++                        <p>Ordenamos, auditamos y homologamos tu documentación en seguridad, salud ocupacional y medio ambiente para afrontar auditorías con confianza.</p>
++                    </article>
++                </div>
++            </section>
++
++            <section class="section metodologia">
++                <div class="texto">
++                    <h2>Metodología ESAM</h2>
++                    <p>Nuestro equipo multidisciplinario acompaña a nuestros clientes en todas las etapas del proyecto. Diagnóstico, planificación, implementación y seguimiento se integran para asegurar resultados sostenibles.</p>
++                    <ul>
++                        <li>Análisis personalizado del contexto ambiental y normativo.</li>
++                        <li>Estrategias prácticas alineadas con los objetivos de tu organización.</li>
++                        <li>Capacitación continua y acompañamiento en campo.</li>
++                    </ul>
++                </div>
++                <div class="imagen" role="presentation" aria-hidden="true"></div>
++            </section>
++
++            <section id="contacto" class="section contacto">
++                <h2>Trabajemos juntos</h2>
++                <p>Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas.</p>
++                <form class="contact-form">
++                    <div class="form-row">
++                        <label for="nombre">Nombre</label>
++                        <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
++                    </div>
++                    <div class="form-row">
++                        <label for="email">Correo electrónico</label>
++                        <input type="email" id="email" name="email" placeholder="empresa@correo.com" required>
++                    </div>
++                    <div class="form-row">
++                        <label for="mensaje">Mensaje</label>
++                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Describe tu necesidad"></textarea>
++                    </div>
++                    <button type="submit" class="btn primary">Enviar mensaje</button>
++                </form>
++            </section>
++        </section>
++
++        <section id="verificacion" class="tab-section" aria-labelledby="tab-verificacion">
++            <section class="section verificacion">
++                <h2>Verificación de certificados y diplomas</h2>
++                <p>Ingresa el código del certificado o diploma emitido por ESAM Ingenieros para validar su autenticidad.</p>
++                <form id="verificacion-form" class="verificacion-form" autocomplete="off">
++                    <label for="codigo">Código de verificación</label>
++                    <input type="text" id="codigo" name="codigo" placeholder="Ejemplo: ESAM-2024-001" required>
++                    <button type="submit" class="btn primary">Comprobar</button>
++                </form>
++                <div id="resultado" class="resultado" role="status" aria-live="polite"></div>
++                <div class="info-adicional">
++                    <h3>¿Cómo funcionan nuestros certificados?</h3>
++                    <p>Cada documento emitido cuenta con un código único que puedes validar en esta plataforma. Si tienes dudas adicionales, contáctanos a <a href="mailto:certificaciones@esamingenieros.com">certificaciones@esamingenieros.com</a>.</p>
++                </div>
++            </section>
++        </section>
++    </main>
++
++    <footer class="footer">
++        <p>&copy; <span id="year"></span> ESAM Ingenieros. Todos los derechos reservados.</p>
++        <div class="footer-links">
++            <a href="#servicios">Servicios</a>
++            <a href="#contacto">Contacto</a>
++            <a href="mailto:info@esamingenieros.com">info@esamingenieros.com</a>
++        </div>
++    </footer>
++
++    <script src="script.js"></script>
++</body>
++</html>
+ 
+EOF
+)
